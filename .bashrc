@@ -67,10 +67,10 @@ if tput setaf 1 &> /dev/null; then
 	green=$(tput setaf 64);
 	orange=$(tput setaf 166);
 	purple=$(tput setaf 125);
-	red=$(tput setaf 124);
+	red=$(tput setaf 9);
 	violet=$(tput setaf 61);
 	white=$(tput setaf 15);
-	yellow=$(tput setaf 136);
+	yellow=$(tput setaf 11);
 else
 	bold='';
 	reset="\e[0m";
@@ -83,25 +83,15 @@ else
 	red="\e[1;31m";
 	violet="\e[1;35m";
 	white="\e[1;37m";
-	yellow="\e[1;33m";
+	yellow="\e[1;11m";
 fi;
 
-# Highlight the user name when logged in as root.
-if [[ "${USER}" == "root" ]]; then
-	userStyle="${red}";
-else
-	userStyle="${orange}";
-fi;
-
-# Highlight the hostname when connected via SSH.
-if [[ "${SSH_TTY}" ]]; then
-	hostStyle="${bold}${red}";
-else
-	hostStyle="${yellow}";
-fi;
+userStyle="${yellow}";
+hostStyle="${red}";
 
 # Set the terminal title and prompt.
-PS1="\[\033]0;\W\007\]"; # working directory base name
+PS1="\e[48;5;0m"; # setting colors
+PS1+="\[\033]0;\W\007\]"; # working directory base name
 PS1+="\[${bold}\]\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
 PS1+="\[${white}\] at ";
