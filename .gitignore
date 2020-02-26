@@ -1,0 +1,13 @@
+# Ignore everything...
+# but not these folders
+/*
+/*/
+!/.config/
+!/.local/
+
+# and not these files
+!.gitignore
+!.vimrc
+!.bashrc
+
+
