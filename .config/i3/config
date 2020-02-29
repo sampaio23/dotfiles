@@ -176,10 +176,23 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-        status_command i3status
-	position top
-}
+#bar {
+#        status_command i3status
+#	position top
+#}
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 for_window [class="^.*"] border pixel 5
 gaps inner 15
+floating_minimum_size 75 x 50
+floating_maximum_size 400 x 600
+
+bindsym $mod+Shift+x exec --no-startup-id shutdown now
+
+# Increase backlight
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 20
+
+# Decrease backlight
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 20
+
