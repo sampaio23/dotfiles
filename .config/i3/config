@@ -56,7 +56,7 @@ bindsym $mod+d exec dmenu_run
 # change focus
 bindsym $mod+j focus left
 bindsym $mod+k focus down
-bindsym $mod+l focus up
+#bindsym $mod+l focus up
 bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
@@ -196,3 +196,5 @@ bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 # Decrease backlight
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
+# Lock script
+bindsym $mod+l exec --no-startup-id $HOME/.local/bin/lock.sh
