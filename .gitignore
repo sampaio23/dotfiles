@@ -3,11 +3,12 @@
 /*
 /*/
 !/.config/
+!/.local/
+/.local/*
 !/.local/bin
 
 # and not these files
 !.gitignore
 !.vimrc
 !.bashrc
-
 
