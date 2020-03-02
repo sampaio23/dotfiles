@@ -198,3 +198,6 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 # Lock script
 bindsym $mod+l exec --no-startup-id $HOME/.local/bin/lock.sh
+
+bindsym $mod+c exec --no-startup-id clipmenu
+bindsym $mod+y exec --no-startup-id $HOME/.local/bin/dmenulink.sh

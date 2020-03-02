@@ -20,6 +20,8 @@ font="sans-serif"
 
 # the lock screen is 1366x768 and rectangle is at x=16 and y=7, with size 313x127
 
+mpc pause
+
 i3lock -t -i $HOME/.local/bin/lock.png \
 	--timepos='x+110:h-70' \
 	--datepos='x+43:h-45' \
@@ -31,4 +33,9 @@ i3lock -t -i $HOME/.local/bin/lock.png \
 	--radius=20 --ring-width=4 --veriftext='' --wrongtext='' \
 	--verifcolor="$verifcolor" --timecolor="$timecolor" --datecolor="$datecolor" \
 	--time-font="$font" --date-font="$font" --layout-font="$font" --verif-font="$font" --wrong-font="$font" \
-	--noinputtext='' --force-clock --pass-media-keys $lockargs 
+	--noinputtext='' --force-clock --pass-media-keys $lockargs
+
+while [[ $(pgrep -x i3lock) ]]; do
+	[[ 10000 -lt $(xssstate -i) ]] && xset dpms force off
+	sleep 5
+done

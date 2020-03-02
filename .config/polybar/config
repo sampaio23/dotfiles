@@ -49,7 +49,7 @@ font-3 = FontAwesome5Free:style=Solid:size=8;1
 font-4 = FontAwesome5Free:style=Regular:size=8;1
 font-5 = FontAwesome5Brands:style=Regular:size=8;1
 
-modules-left = i3
+modules-left = i3 mpd
 ;modules-center = mpd
 modules-right = weather xbacklight pulseaudio wlan eth temperature battery date
 ;modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
@@ -282,6 +282,30 @@ exec = $HOME/.local/bin/weather.sh
 interval = 1800
 format-underline = #835621
 
+; # --- Music --- #
+
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next> <label-song> <label-time>
+format-online-prefix ="  "
+
+icon-prev = 
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = 
+
+label-song-maxlen = 40
+label-song-ellipsis = true
+
+bar-progress-width = 25
+bar-progress-indicator = |
+bar-progress-fill = -
+bar-progress-empty = -
+
+
+
+
 
 
 
@@ -344,20 +368,6 @@ label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
-
-
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
 
 [module/backlight-acpi]
 inherit = module/xbacklight
