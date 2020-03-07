@@ -186,7 +186,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 for_window [class="^.*"] border pixel 5
 gaps inner 15
 floating_minimum_size 75 x 50
-floating_maximum_size 400 x 600
+floating_maximum_size 800 x 600
 
 bindsym $mod+Shift+x exec --no-startup-id shutdown now
 
@@ -201,3 +201,6 @@ bindsym $mod+l exec --no-startup-id $HOME/.local/bin/lock.sh
 
 bindsym $mod+c exec --no-startup-id clipmenu
 bindsym $mod+y exec --no-startup-id $HOME/.local/bin/dmenulink.sh
+
+# Printscreen binds
+bindsym --release Print exec --no-startup-id scrot /dev/null -s -e 'xclip -selection clipboard -t image/png < $f'
