@@ -22,7 +22,7 @@ font="sans-serif"
 
 mpc pause
 
-i3lock -t -i $HOME/.local/bin/lock.png \
+i3lock -t -i $(ls $HOME/.backgrounds | sort -R | tail -1) \
 	--timepos='x+110:h-70' \
 	--datepos='x+43:h-45' \
 	--clock --date-align 1 --datestr "$locktext" \
