@@ -6,6 +6,10 @@
 clipcopy=$(xclip -o)
 
 case "$(printf "Download Youtube Music\\nBrowser" | dmenu -i -p "Open link with:")" in
-	"Download Youtube Music") tsp youtube-dl -f 'bestaudio[ext=m4a]' $clipcopy >/dev/null 2>&1 ;;
+	"Download Youtube Music") tsp youtube-dl -f 'bestaudio[ext=m4a]' $clipcopy >/dev/null 2>&1 
+	while [[ $(pgrep -x youtube-dl) ]]; do
+		:
+	done
+	notify-send 'Youtube' 'Download complete!' ;;
 	"Browser") setsid firefox $clipcopy >/dev/null 2>&1 & ;;
 esac
