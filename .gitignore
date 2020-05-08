@@ -11,4 +11,6 @@
 !.gitignore
 !.vimrc
 !.bashrc
+!baraction.sh
+!.spectrwm.conf
 
