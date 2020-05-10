@@ -1,0 +1,7 @@
+XTerm.termName: xterm-256color
+XTerm.vt100.saveLines: 20000
+xterm*foreground: white
+xterm*background: black
+xterm*faceName: JetBrainsMono
+xterm*faceSize: 10
+xterm*loginShell: true
