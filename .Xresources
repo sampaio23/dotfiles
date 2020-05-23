@@ -2,6 +2,6 @@ XTerm.termName: xterm-256color
 XTerm.vt100.saveLines: 20000
 xterm*foreground: white
 xterm*background: black
-xterm*faceName: JetBrainsMono
+xterm*faceName: JetBrainsMono Nerd Font
 xterm*faceSize: 10
 xterm*loginShell: true
