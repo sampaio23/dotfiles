@@ -1,5 +1,8 @@
 #!/bin/bash
 
+HISTSIZE=-1
+HISTFILESIZE=50000
+
 alias ls='ls --color=auto'
 alias r='ranger'
 

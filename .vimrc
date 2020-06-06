@@ -1,25 +1,20 @@
+" --- " Plugin management " --- "
+call plug#begin()
+Plug 'junegunn/goyo.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'https://github.com/ap/vim-css-color.git'
+Plug 'preservim/NerdTREE'
+call plug#end()
+
 " --- " Basic Settings " --- "
-
-set number
-set mouse=a
+set number relativenumber
 syntax on
-set nocompatible
-set nocompatible
-behave mswin
+set encoding=utf-8
+set fileencoding=utf-8
+set noshowmode
+set laststatus=2
+set incsearch
+set hlsearch
 
-" --- " Key Maps " --- "
-
+" --- " Remaps " --- "
 imap jk <Esc>
-
-" Save
-imap <C-s> <Esc>:w<CR>
-nmap <C-s> :w<CR>
-
-" Undo and redo
-imap <C-z> <Esc>:u<CR>i
-nmap <C-z> :u<CR>
-
-imap <C-y> <Esc><C-R>i
-nmap <C-y> <C-R>
-
-" Copy, paste and cut
