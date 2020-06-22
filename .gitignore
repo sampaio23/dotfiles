@@ -1,17 +1,12 @@
-# Ignore everything...
-# but not these folders
-/*
-/*/
-!/.config/
-!/.local/
-/.local/*
-!/.local/bin
+dmenu/dmenu
+dmenu/dmenu.o
+dmenu/drw.o
+dmenu/stest.o
+dmenu/util.o
 
-# and not these files
-!.gitignore
-!.vimrc
-!.bashrc
-!baraction.sh
-!.spectrwm.conf
-!.Xresources
-!.xinitrc
+frankenwm/frankenwm
+frankenwm/frankwnwm.o
+
+slock/slock
+slock/slock.o
+slock/explicit_bzero.o
