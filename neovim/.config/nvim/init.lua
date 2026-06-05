@@ -1,5 +1,6 @@
 require("core.options")
 require("core.keymaps")
+require("core.compile")
 require("core.autocmds")
 require("core.statusline")
 require("core.lazy")

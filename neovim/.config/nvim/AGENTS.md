@@ -12,6 +12,7 @@ This config is intentionally built slowly and pragmatically. Prefer built-in Neo
 - Do not add dashboards or heavy UI plugins by default.
 - Use `lazy.nvim` for plugins.
 - Use spaces over tabs for indentation.
+- Indentation width is 4 spaces.
 - Leader key is Space.
 - Absolute line numbers only, not relative line numbers.
 - System clipboard integration should be enabled.
@@ -41,12 +42,15 @@ This config is intentionally built slowly and pragmatically. Prefer built-in Neo
 
 - `<leader>w`: write file.
 - `<leader>q`: quit window.
+- `<leader>x`: write and quit.
+- `<leader>c`: run a command in the live compilation split.
+- `<leader>C`: toggle the live compilation split.
 - `<leader>n`: next buffer.
 - `<leader>p`: previous buffer.
 - `<leader>d`: delete current buffer.
 - `<leader>s`: vertical split.
 - `<leader>r`: query replace.
-- `<leader>e`: Telescope file finder.
+- `<leader>f`: Telescope file finder.
 - `<leader>g`: Telescope live grep.
 - `<leader>b`: Telescope open buffers.
 - `<Esc>`: clear search highlight.

@@ -18,6 +18,7 @@ keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
 
 keymap("n", "<leader>w", "<cmd>write<CR>", { desc = "Write file" })
 keymap("n", "<leader>q", "<cmd>quit<CR>", { desc = "Quit window" })
+keymap("n", "<leader>x", "<cmd>x<CR>", { desc = "Write and quit" })
 keymap("n", "<leader>n", "<cmd>bnext<CR>", { desc = "Next buffer" })
 keymap("n", "<leader>p", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 keymap("n", "<leader>d", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
