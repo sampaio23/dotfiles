@@ -32,7 +32,6 @@ return {
         vim.keymap.set("n", "gD", "<cmd>tselect <C-r><C-w><CR>", opts)
         vim.keymap.set("n", "gr", grep_references, opts)
         vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
       end,
     })
 

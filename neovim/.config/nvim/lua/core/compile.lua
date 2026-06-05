@@ -2,6 +2,20 @@ local keymap = vim.keymap.set
 
 local compile_buf = nil
 local compile_job = nil
+local compile_ns = vim.api.nvim_create_namespace("compile")
+
+vim.api.nvim_set_hl(0, "CompileFinished", { link = "DiagnosticOk" })
+vim.api.nvim_set_hl(0, "CompileError", { link = "DiagnosticError" })
+
+local function format_duration(seconds)
+  if seconds < 60 then
+    return string.format("%.2f s", seconds)
+  end
+
+  local minutes = math.floor(seconds / 60)
+  local remaining = seconds - minutes * 60
+  return string.format("%d min %.2f s", minutes, remaining)
+end
 
 local function create_compile_buffer()
   if compile_buf and vim.api.nvim_buf_is_valid(compile_buf) then
@@ -75,6 +89,14 @@ local function set_modifiable(buf, modifiable)
   end
 end
 
+local function highlight_status(buf, status, group)
+  local line = vim.api.nvim_buf_line_count(buf) - 1
+  local start_col = #"Compilation "
+  local end_col = start_col + #status
+
+  vim.api.nvim_buf_add_highlight(buf, compile_ns, group, line, start_col, end_col)
+end
+
 local function run_compile(command)
   if command == "" then
     return
@@ -90,6 +112,8 @@ local function run_compile(command)
   set_modifiable(buf, true)
   vim.api.nvim_buf_set_lines(buf, 0, -1, false, { "$ " .. command, "" })
   set_modifiable(buf, false)
+
+  local started_at = vim.uv.hrtime()
 
   compile_job = vim.fn.jobstart(command, {
     stdout_buffered = false,
@@ -110,8 +134,21 @@ local function run_compile(command)
     end,
     on_exit = function(job_id, code)
       vim.schedule(function()
+        local finished_at = os.date("%a %b %d %H:%M:%S")
+        local duration = format_duration((vim.uv.hrtime() - started_at) / 1e9)
+        local status = "finished"
+        local group = "CompileFinished"
+
+        if code ~= 0 then
+          status = "exited with code " .. code
+          group = "CompileError"
+        end
+
+        local message = "Compilation " .. status .. " at " .. finished_at .. ", duration " .. duration
+
         set_modifiable(buf, true)
-        append_lines(buf, { "", "[process exited " .. code .. "]" })
+        append_lines(buf, { "", message })
+        highlight_status(buf, status, group)
         set_modifiable(buf, false)
 
         if compile_job == job_id then
