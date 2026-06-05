@@ -34,6 +34,7 @@ This config is intentionally built slowly and pragmatically. Prefer built-in Neo
 - Colorscheme: built-in `koehler`.
 - Statusline: custom built-in statusline, no plugin.
 - Whitespace display: enabled with subtle markers.
+- Git signs are enabled in the sign column with ASCII markers only.
 - Diagnostic signs, underlines, and virtual text are disabled globally.
 - Query replace is implemented with a custom built-in wrapper over `:%s///gc`.
 - Netrw custom config was removed after Telescope became the file finder.
@@ -51,8 +52,11 @@ This config is intentionally built slowly and pragmatically. Prefer built-in Neo
 - `<leader>s`: vertical split.
 - `<leader>r`: query replace.
 - `<leader>f`: Telescope file finder.
-- `<leader>g`: Telescope live grep.
+- `<leader>/`: Telescope live grep.
 - `<leader>b`: Telescope open buffers.
+- `<leader>gp`: preview current Git hunk inline.
+- `<leader>gh`: toggle Git changed-line background highlights.
+- `<leader>gu`: undo current Git hunk.
 - `<Esc>`: clear search highlight.
 - `Ctrl-h/j/k/l`: move between windows.
 - `Ctrl-Arrow`: move between windows in normal, insert, visual, and terminal modes.
@@ -98,6 +102,7 @@ This config is intentionally built slowly and pragmatically. Prefer built-in Neo
 - `plenary.nvim`: dependency of Telescope; not configured directly.
 - `blink.cmp`: used for modern manual completion UX.
 - `nvim-lspconfig`: used for LSP server configuration with native Neovim LSP APIs.
+- `gitsigns.nvim`: used for Git change markers, inline hunk preview, and optional line highlights; blame, word diff, and navigation UI are not configured yet.
 
 ## Things To Preserve
 

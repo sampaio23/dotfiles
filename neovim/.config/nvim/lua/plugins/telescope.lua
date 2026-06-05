@@ -59,7 +59,7 @@ return {
       desc = "Find files",
     },
     {
-      "<leader>g",
+      "<leader>/",
       function()
         require("telescope.builtin").live_grep()
       end,
