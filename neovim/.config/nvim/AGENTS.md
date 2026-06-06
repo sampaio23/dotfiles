@@ -34,6 +34,7 @@ This config is intentionally built slowly and pragmatically. Prefer built-in Neo
 - Colorscheme: built-in `koehler`.
 - Statusline: custom built-in statusline, no plugin.
 - Whitespace display: enabled with subtle markers.
+- Persistent undo is enabled with Neovim's built-in undo files.
 - Git signs are enabled in the sign column with ASCII markers only.
 - Diagnostic signs, underlines, and virtual text are disabled globally.
 - Query replace is implemented with a custom built-in wrapper over `:%s///gc`.
@@ -49,6 +50,7 @@ This config is intentionally built slowly and pragmatically. Prefer built-in Neo
 - `<leader>n`: next buffer.
 - `<leader>p`: previous buffer.
 - `<leader>d`: delete current buffer.
+- `<leader>u`: show undo history.
 - `<leader>s`: vertical split.
 - `<leader>r`: query replace.
 - `<leader>f`: Telescope file finder.

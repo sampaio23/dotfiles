@@ -39,6 +39,7 @@ opt.listchars = {
 
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.tags = { "./tags;", "tags" }
+opt.undofile = true
 
 vim.diagnostic.config({
   signs = false,
