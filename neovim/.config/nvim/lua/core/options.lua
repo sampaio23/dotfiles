@@ -21,6 +21,7 @@ opt.incsearch = true
 
 opt.splitright = true
 opt.splitbelow = true
+opt.scrolloff = 10
 
 opt.termguicolors = true
 opt.signcolumn = "yes"

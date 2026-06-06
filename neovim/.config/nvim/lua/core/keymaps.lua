@@ -1,6 +1,6 @@
 local keymap = vim.keymap.set
 
-local function query_replace()
+local function query_replace(range)
   local search = vim.fn.input("Replace: ")
 
   if search == "" then
@@ -11,7 +11,7 @@ local function query_replace()
   local escaped_search = vim.fn.escape(search, [[/\]])
   local escaped_replacement = vim.fn.escape(replacement, [[/\&]])
 
-  vim.cmd(string.format([[%%s/\V%s/%s/gc]], escaped_search, escaped_replacement))
+  vim.cmd(string.format([[%ss/\V%s/%s/gc]], range, escaped_search, escaped_replacement))
 end
 
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
@@ -22,7 +22,19 @@ keymap("n", "<leader>x", "<cmd>x<CR>", { desc = "Write and quit" })
 keymap("n", "<leader>n", "<cmd>bnext<CR>", { desc = "Next buffer" })
 keymap("n", "<leader>p", "<cmd>bprevious<CR>", { desc = "Previous buffer" })
 keymap("n", "<leader>d", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
-keymap("n", "<leader>r", query_replace, { desc = "Query replace" })
+keymap("n", "<leader>r", function()
+  query_replace("%")
+end, { desc = "Query replace" })
+keymap("v", "<leader>r", function()
+  local start_line = vim.fn.line("v")
+  local end_line = vim.fn.line(".")
+
+  if start_line > end_line then
+    start_line, end_line = end_line, start_line
+  end
+
+  query_replace(string.format("%d,%d", start_line, end_line))
+end, { desc = "Query replace selection" })
 keymap("n", "<leader>s", "<cmd>vsplit<CR>", { desc = "Vertical split" })
 
 keymap("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
