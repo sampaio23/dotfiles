@@ -1,0 +1,19 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": ["niri/workspaces", "niri/window"],
+    "modules-center": ["clock"],
+    "modules-right": ["cpu", "memory", "tray"],
+
+    "niri/workspaces": {
+        "format": "{index}",
+        "format-icons": {
+            "focused": "●",
+            "default": "○"
+        }
+    },
+    "clock": {
+        "format": "{:%Y-%m-%d %H:%M}"
+    }
+}
