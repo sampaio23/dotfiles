@@ -1,0 +1,9 @@
+name: more-space
+description: ""
+config: {}
+devices:
+  root:
+    path: /
+    pool: default
+    size: 20GiB
+    type: disk

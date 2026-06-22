@@ -1,0 +1,21 @@
+name: shared-folder
+description: ""
+config:
+  user.vendor-data: |
+    #cloud-config
+    system_info:
+      default_user:
+        name: ubuntu
+        uid: 1000
+        gid: 1000
+    package_update: true
+    package_upgrade: true
+    mounts:
+      - [ shared-disk, /mnt/shared, virtiofs, "defaults", "0", "0" ]
+    runcmd:
+      - [ chmod, -R, "1000:1000", /mnt/shared ]
+devices:
+  shared-disk:
+    path: /mnt/shared
+    source: /home/ubuntu
+    type: disk
