@@ -1,0 +1,21 @@
+name: shared-folder
+description: ""
+config:
+  user.vendor-data: |
+    #cloud-config
+    system_info:
+      default_user:
+        name: ubuntu
+        uid: 1770789953
+        gid: 1770789953
+    package_update: true
+    package_upgrade: true
+    mounts:
+      - [ shared-disk, /mnt/shared, virtiofs, "defaults", "0", "0" ]
+    runcmd:
+      - [ chmod, -R, "1770789953:1770789953", /mnt/shared ]
+devices:
+  shared-disk:
+    path: /mnt/shared
+    source: /home/luiz.sampaio@canonical.com/work
+    type: disk
