@@ -12,3 +12,12 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  pattern = "gitcommit",
+  desc = "Start at top for git commit messages",
+  callback = function()
+    vim.api.nvim_win_set_cursor(0, {1, 0})
+  end,
+})
