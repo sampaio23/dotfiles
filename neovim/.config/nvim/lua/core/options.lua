@@ -40,6 +40,7 @@ opt.listchars = {
 opt.completeopt = { "menu", "menuone", "noselect" }
 opt.tags = { "./tags;", "tags" }
 opt.undofile = true
+opt.cursorcolumn = true
 
 vim.diagnostic.config({
   signs = false,
@@ -49,3 +50,4 @@ vim.diagnostic.config({
 
 vim.cmd.colorscheme("koehler")
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#303030" })
+vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#141414" })
