@@ -5,9 +5,21 @@ return {
   opts = {
     keymap = {
       preset = "none",
-      ["<C-Space>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<Nul>"] = { "show", "show_documentation", "hide_documentation" },
-      ["<C-y>"] = { "select_and_accept" },
+      ["<C-Space>"] = { function(cmp)
+        if cmp.is_visible() then
+          return cmp.select_next()
+        else
+          return cmp.show()
+        end
+      end },
+      ["<Nul>"] = { function(cmp)
+        if cmp.is_visible() then
+          return cmp.select_next()
+        else
+          return cmp.show()
+        end
+      end },
+      ["<CR>"] = { "accept", "fallback" },
       ["<C-n>"] = { "select_next", "fallback" },
       ["<C-p>"] = { "select_prev", "fallback" },
       ["<C-e>"] = { "hide", "fallback" },
