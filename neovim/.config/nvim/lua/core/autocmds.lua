@@ -21,3 +21,13 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.api.nvim_win_set_cursor(0, {1, 0})
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  group = augroup,
+  desc = "Remove trailing whitespace on save",
+  callback = function()
+    local save_cursor = vim.fn.getpos(".")
+    vim.cmd([[%s/\s\+$//e]])
+    vim.fn.setpos(".", save_cursor)
+  end,
+})
