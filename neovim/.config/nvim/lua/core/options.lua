@@ -50,4 +50,4 @@ vim.diagnostic.config({
 
 vim.cmd.colorscheme("koehler")
 vim.api.nvim_set_hl(0, "Whitespace", { fg = "#303030" })
-vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#141414" })
+vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#242424" })
