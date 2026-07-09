@@ -9,6 +9,8 @@ alias ls='ls --color=auto'
 alias ll='ls --color=auto -al'
 alias v='nvim'
 
+export EDITOR=nvim
+
 # opencode
 export PATH=/home/sampaio/.opencode/bin:$PATH
 
