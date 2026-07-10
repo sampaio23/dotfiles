@@ -28,6 +28,13 @@ return {
                 buffer = bufnr,
                 desc = "Undo Git hunk",
             })
+
+            vim.keymap.set("n", "<leader>gb", function()
+                gitsigns.blame_line({ full = true })
+            end, {
+                buffer = bufnr,
+                desc = "Show Git blame for line",
+            })
         end,
     },
 }
