@@ -53,6 +53,8 @@ This config is intentionally built slowly and pragmatically. Prefer built-in Neo
 - `<leader>u`: show undo history.
 - `<leader>s`: vertical split.
 - `<leader>r`: query replace.
+- `<leader>!`: prompt for a shell command and insert its output after the cursor.
+- `<leader>t`: insert UTC ISO timestamp after the cursor.
 - `<leader>f`: Telescope file finder.
 - `<leader>/`: Telescope live grep.
 - `<leader>b`: Telescope open buffers.

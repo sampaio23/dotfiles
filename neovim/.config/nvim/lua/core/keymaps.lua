@@ -14,7 +14,41 @@ local function query_replace(range)
   vim.cmd(string.format([[%ss/\V%s/%s/gc]], range, escaped_search, escaped_replacement))
 end
 
+local function insert_after_cursor(text)
+  text = vim.fn.trim(text)
+
+  if text == "" then
+    return
+  end
+
+  vim.api.nvim_put(vim.split(text, "\n"), "c", true, true)
+end
+
+local function insert_command_output(command)
+  local output = vim.fn.system(command)
+
+  if vim.v.shell_error ~= 0 then
+    vim.notify(string.format("Command failed (%d): %s", vim.v.shell_error, vim.fn.trim(output)), vim.log.levels.ERROR)
+    return
+  end
+
+  insert_after_cursor(output)
+end
+
 keymap("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlight" })
+
+keymap("n", "<leader>!", function()
+  local command = vim.fn.input("Command: ", "", "shellcmd")
+
+  if command == "" then
+    return
+  end
+
+  insert_command_output(command)
+end, { desc = "Insert command output after cursor" })
+keymap("n", "<leader>t", function()
+  insert_command_output("date -Iseconds --utc")
+end, { desc = "Insert UTC ISO timestamp after cursor" })
 
 keymap("n", "<leader>w", "<cmd>write<CR>", { desc = "Write file" })
 keymap("n", "<leader>q", "<cmd>quit<CR>", { desc = "Quit window" })
